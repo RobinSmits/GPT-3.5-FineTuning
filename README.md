@@ -1,4 +1,75 @@
-# GPT-3.5 Finetuning on Dutch language experiment
+# GPT-3.5 Finetuning on a Dutch language dataset
 
 ## Introduction
 
+
+
+## Dataset
+
+The dataset used in this experiment is the [DpgMedia2019: A Dutch News Dataset for Partisanship Detection](https://github.com/dpgmedia/partisan-news2019) dataset.
+
+It contains various parts but the main part I use in this repository is a subset from the original 104K news articles. For each article there is a label 'partisan' stating whether the article is partisan or not (True/False). The amount of partisan / non-partisan articles is roughly balanced.
+
+The dataset was created by the authors with the aim to contribute to for example creating a partisan news detector. In the python code used in the experiments the specific dataset files are downloaded automatically. 
+
+Checkout the github and paper for more information about the dataset and how it whas constructed. See the References for the information.
+
+NOTE !! As of January 2023 not all files are available anymore in the original github location of the dataset. If you require the original files than download them from the [Kaggle Dataset](https://www.kaggle.com/datasets/rsmits/dpgmedia2019).
+
+The training and validation subsets as used in this repository are available in the 'data' folder.
+
+## Training and Validation Data Subsets
+
+In the notebook 'Prepare_Train_and_Validation_Datasets.ipynb' the full dataset will be split into smaller subsets that are used for training and validation.
+
+These files are available in the 'data' folder in this repository.
+
+The primary reasons to create smaller subsets of the data are that a GPT (or other LLM's) model only needs a few thousand samples to perform finetuning on them. Smaller datasets also means less tokens and a smaller bill for your credit card ;-)
+
+The smaller subsets have the following sample amounts:
+* Training: 3069 samples
+* Validation: 1559 samples
+
+## Transformer model fine-tuning and validation
+
+TODO
+
+## GPT-3.5  fine-tuning and validation
+
+TODO
+
+## Model Comparison
+
+Find below the achieved accuracy scores on the validation set for the 2 Transformer models and the GPT-3.5 model.
+
+The GPT-3.5 model achieves a high accuracy score after fine-tuning.
+
+The performance of the 2 Transformer models lag a little bit behind. They would clearly benefit from training on more data samples.
+
+| (LLM) Model Type | Validation Accuracy (%) Score |
+|:---------------|----------------:|
+| Multi-lingual DistilBert | 86.6 |
+| Multi-lingual Bert | 87.6 |
+| GPT-3.5 Turbo 0613 (fine-tuned) | 90.8 |
+
+## Future Work
+
+In the near future I will expand this repository with the following code, results and further analysis:
+* Add 1 or 2 more regular multi-lingual Transformer models.
+* Train 1 of the regular multi-lingual Transformer models on all (104K) available news articles.
+* Add finetuning and validation for any Open LLM's that are pretrained on the Dutch language.
+* Perform validation based on in-context learning with GPT-3.5
+* Add finetuning and validation for GPT-4
+* Perform all above steps for an additional Dutch dataset
+* ??? Any further requests/ideas are welcome ... post your question or idea through an Issue.
+
+## References
+
+```
+@misc{1908.02322,
+  Author = {Chia-Lun Yeh and Babak Loni and Mariëlle Hendriks and Henrike Reinhardt and Anne Schuth},
+  Title = {DpgMedia2019: A Dutch News Dataset for Partisanship Detection},
+  Year = {2019},
+  Eprint = {arXiv:1908.02322},
+}
+```
