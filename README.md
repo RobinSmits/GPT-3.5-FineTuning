@@ -34,28 +34,36 @@ The smaller subsets have the following sample amounts:
 
 TODO
 
-## GPT-3.5  fine-tuning and validation
+## GPT-3.5 fine-tuning and validation
 
-TODO
+The code for fine-tuning GPT-3.5 can be found in the notebook 'Finetune_GPT-3.5.ipynb'. Based on the training and validation CSV files specific files are created  and uploaded to OpenAI that are used for fine-tuning the GPT-3.5 model. The news articles are wrapped into a specific prompt that's engineered for the classification we would like the model to learn through fine-tuning.
+
+The validation code is available in the notebook 'Validate_GPT-3.5.ipynb'. for each record in the validation set the text of the news article is wrapped in the prompt and OpenAI is called through the API to get the response from the chatcompletion.
+The response is converted to a binary label and with the ground truth labels the final classification report is generated.
+
+The fine-tuned OpenAI GPT-3.5 model achieves an accuraccy on the validation set of 90.8%.
+
+Note that I used OpenAI for fine-tuning and validation and not Azure OpenAI.
 
 ## Model Comparison
 
-Find below the achieved accuracy scores on the validation set for the 2 Transformer models and the GPT-3.5 model.
+Find below the achieved accuracy scores on the validation set for the 3 Transformer models and the GPT-3.5 model.
 
 The GPT-3.5 model achieves a high accuracy score after fine-tuning.
 
-The performance of the 2 Transformer models lag a little bit behind. They would clearly benefit from training on more data samples.
+The performance of the 3 Transformer models lag a little bit behind. They would clearly benefit from training on more data samples.
 
 | (LLM) Model Type | Validation Accuracy (%) Score |
 |:---------------|----------------:|
-| Multi-lingual DistilBert | 86.6 |
+| Multi-lingual DistilBert | 86.0 |
 | Multi-lingual Bert | 87.6 |
+| Multi-linqual DeBERTa V3 | 88.3 |
 | GPT-3.5 Turbo 0613 (fine-tuned) | 90.8 |
 
 ## Future Work
 
 In the near future I will expand this repository with the following code, results and further analysis:
-* Add 1 or 2 more regular multi-lingual Transformer models.
+* DONE: Add 1 or 2 more regular multi-lingual Transformer models.
 * Train 1 of the regular multi-lingual Transformer models on all (104K) available news articles.
 * Add finetuning and validation for any Open LLM's that are pretrained on the Dutch language.
 * Perform validation based on in-context learning with GPT-3.5
