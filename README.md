@@ -34,6 +34,14 @@ The smaller subsets have the following sample amounts:
 
 TODO
 
+## Open LLM model fine-tuning and validation
+
+The PolyLM 1.7B Open LLM model was pretrained on a multi-lingual dataset which also contained the Dutch language.
+
+In the notebook 'Open_LLM_Training_And_Validation.ipynb' the PolyLM model is quantized to 4-bits and fine-tuned with a QLoRA setup to minimize the GPU memory footprint.
+
+It achieves an accuracy of 83.4% on the validation set.
+
 ## GPT-3.5 fine-tuning and validation
 
 The code for fine-tuning GPT-3.5 can be found in the notebook 'Finetune_GPT-3.5.ipynb'. Based on the training and validation CSV files specific files are created  and uploaded to OpenAI that are used for fine-tuning the GPT-3.5 model. The news articles are wrapped into a specific prompt that's engineered for the classification we would like the model to learn through fine-tuning.
@@ -53,8 +61,11 @@ The GPT-3.5 model achieves a high accuracy score after fine-tuning.
 
 The performance of the 3 Transformer models lag a little bit behind. They would clearly benefit from training on more data samples.
 
+The Open LLM PolyLM achieves the lowest score.
+
 | (LLM) Model Type | Validation Accuracy (%) Score |
 |:---------------|----------------:|
+| PolyLM 1.7B | 83.4 |
 | Multi-lingual DistilBert | 86.0 |
 | Multi-lingual Bert | 87.6 |
 | Multi-linqual DeBERTa V3 | 88.3 |
@@ -65,7 +76,7 @@ The performance of the 3 Transformer models lag a little bit behind. They would 
 In the near future I will expand this repository with the following code, results and further analysis:
 * DONE: Add 1 or 2 more regular multi-lingual Transformer models.
 * Train 1 of the regular multi-lingual Transformer models on all (104K) available news articles.
-* Add finetuning and validation for any Open LLM's that are pretrained on the Dutch language.
+* DONE: Add finetuning and validation for any Open LLM's that are pretrained on the Dutch language.
 * Perform validation based on in-context learning with GPT-3.5
 * Add finetuning and validation for GPT-4
 * Perform all above steps for an additional Dutch dataset
