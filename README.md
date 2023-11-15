@@ -32,15 +32,18 @@ The smaller subsets have the following sample amounts:
 
 ## Transformer model fine-tuning and validation
 
-TODO
+The following regular Transformer models where trained and validated in the notebook 'Transformer_Model_Training_And_Validation.ipynb':
+* Multi-lingual DistilBert
+* Multi-lingual Bert
+* Multi-linqual DeBERTa V3
 
 ## Open LLM model fine-tuning and validation
 
-The PolyLM 1.7B Open LLM model was pretrained on a multi-lingual dataset which also contained the Dutch language.
+The PolyLM 1.7B and OpenLLaMA 7B V2 Open LLM models where both pretrained on multi-lingual datasets which also contained the Dutch language.
 
-In the notebook 'Open_LLM_Training_And_Validation.ipynb' the PolyLM model is quantized to 4-bits and fine-tuned with a QLoRA setup to minimize the GPU memory footprint.
+In the notebook 'Open_LLM_Training_And_Validation.ipynb' the Open LLM models are quantized to 4-bits and fine-tuned with a QLoRA setup to minimize the GPU memory footprint.
 
-It achieves an accuracy of 83.4% on the validation set.
+After training the PolyLM 1.7B model achieves an accuracy on the validation set of 82.7% while the OpenLLaMA 7B V2 model even achieves 89.1%.
 
 ## GPT-3.5 fine-tuning and validation
 
@@ -61,14 +64,15 @@ The GPT-3.5 model achieves a high accuracy score after fine-tuning.
 
 The performance of the 3 Transformer models lag a little bit behind. They would clearly benefit from training on more data samples.
 
-The Open LLM PolyLM achieves the lowest score.
+The Open LLM PolyLM achieves the lowest score. The OpenLLaMA 7B V2 model however achieves a remarkable score of 89.1% which is very close to the score achieved by GPT-3.5 Turbo.
 
 | (LLM) Model Type | Validation Accuracy (%) Score |
 |:---------------|----------------:|
-| PolyLM 1.7B | 83.4 |
+| PolyLM 1.7B | 82.7 |
 | Multi-lingual DistilBert | 86.0 |
 | Multi-lingual Bert | 87.6 |
 | Multi-linqual DeBERTa V3 | 88.3 |
+| OpenLLaMA 7B V2 | 89.1 |
 | GPT-3.5 Turbo 0613 (fine-tuned) | 90.8 |
 
 ## Future Work
