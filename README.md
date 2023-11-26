@@ -43,7 +43,11 @@ The PolyLM 1.7B and OpenLLaMA 7B V2 Open LLM models where both pretrained on mul
 
 In the notebook 'Open_LLM_Training_And_Validation.ipynb' the Open LLM models are quantized to 4-bits and fine-tuned with a QLoRA setup to minimize the GPU memory footprint.
 
-After training the PolyLM 1.7B model achieves an accuracy on the validation set of 82.7% while the OpenLLaMA 7B V2 model even achieves 89.1%.
+The LoraConfig is set with a rank of 64 and alpha of 16.
+
+After training the PolyLM 1.7B model achieves an accuracy on the validation set of 84.4% while the OpenLLaMA 7B V2 model even achieves 89.5%.
+
+I did multiple training runs and on various occassions both models scored up to 0.5% higher or lower compared with the above mentioned value.  
 
 ## GPT-3.5 fine-tuning and validation
 
@@ -68,11 +72,11 @@ The Open LLM PolyLM achieves the lowest score. The OpenLLaMA 7B V2 model however
 
 | (LLM) Model Type | Validation Accuracy (%) Score |
 |:---------------|----------------:|
-| PolyLM 1.7B | 82.7 |
+| PolyLM 1.7B (Lora: r = 64) | 84.4 |
 | Multi-lingual DistilBert | 86.0 |
 | Multi-lingual Bert | 87.6 |
 | Multi-linqual DeBERTa V3 | 88.3 |
-| OpenLLaMA 7B V2 | 89.1 |
+| OpenLLaMA 7B V2 (Lora: r = 64) | 89.5 |
 | GPT-3.5 Turbo 0613 (fine-tuned) | 90.8 |
 
 ## Future Work
