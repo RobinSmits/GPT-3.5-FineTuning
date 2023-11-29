@@ -32,7 +32,7 @@ The smaller subsets have the following sample amounts:
 
 ## Transformer model fine-tuning and validation
 
-The following regular Transformer models where trained and validated in the notebook 'Transformer_Model_Training_And_Validation.ipynb':
+The following regular Transformer models where trained and validated in the notebook 'Transformer_Model_Training_And_Validation.ipynb' on the smaller training and validation data subsets:
 * Multi-lingual DistilBert
 * Multi-lingual Bert
 * Multi-linqual DeBERTa V3
@@ -73,17 +73,18 @@ The Open LLM PolyLM achieves the lowest score. The OpenLLaMA 7B V2 model however
 | (LLM) Model Type | Validation Accuracy (%) Score |
 |:---------------|----------------:|
 | PolyLM 1.7B (Lora: r = 64) | 84.4 |
-| Multi-lingual DistilBert | 86.0 |
-| Multi-lingual Bert | 87.6 |
-| Multi-linqual DeBERTa V3 | 88.3 |
+| Multi-lingual DistilBert | 85.6 |
+| Multi-lingual Bert | 86.3 |
+| Multi-linqual DeBERTa V3 | 85.8 |
 | OpenLLaMA 7B V2 (Lora: r = 64) | 89.5 |
 | GPT-3.5 Turbo 0613 (fine-tuned) | 90.8 |
+| !! Multi-linqual DeBERTa V3 (full dataset) | 95.2 |
 
 ## Future Work
 
 In the near future I will expand this repository with the following code, results and further analysis:
 * DONE: Add 1 or 2 more regular multi-lingual Transformer models.
-* Train 1 of the regular multi-lingual Transformer models on all (104K) available news articles.
+* DONE: Train 1 of the regular multi-lingual Transformer models on all (104K) available news articles.
 * DONE: Add finetuning and validation for any Open LLM's that are pretrained on the Dutch language.
 * Perform validation based on in-context learning with GPT-3.5
 * Add finetuning and validation for GPT-4
