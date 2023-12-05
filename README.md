@@ -56,9 +56,13 @@ The code for fine-tuning GPT-3.5 can be found in the notebook 'Finetune_GPT-3.5.
 The validation code is available in the notebook 'Validate_GPT-3.5.ipynb'. for each record in the validation set the text of the news article is wrapped in the prompt and OpenAI is called through the API to get the response from the chatcompletion.
 The response is converted to a binary label and with the ground truth labels the final classification report is generated.
 
-The fine-tuned OpenAI GPT-3.5 model achieves an accuraccy on the validation set of 90.8%.
+The fine-tuned OpenAI GPT-3.5 model achieves an accuraccy on the validation set of 89.4%. 
 
 Note that I used OpenAI for fine-tuning and validation and not Azure OpenAI.
+
+In the latest version (December 5th, 2023) of this notebook I have made the following updates:
+* Updated to the latest version of OpenAI (1.3.7) and modified the API calls accordingly.
+* Changed the model to the latest version: "gpt-3.5-turbo-1106".
 
 ## Model Comparison
 
@@ -68,7 +72,7 @@ The GPT-3.5 model achieves a high accuracy score after fine-tuning.
 
 The performance of the 3 Transformer models lag a little bit behind. They would clearly benefit from training on more data samples.
 
-The Open LLM PolyLM achieves the lowest score. The OpenLLaMA 7B V2 model however achieves a remarkable score of 89.1% which is very close to the score achieved by GPT-3.5 Turbo.
+The Open LLM PolyLM achieves the lowest score. The OpenLLaMA 7B V2 model however achieves a remarkable score of 89.5% which is comparable to the scores achieved by the GPT-3.5 Turbo finetuned models (0613 and 1106).
 
 | (LLM) Model Type | Validation Accuracy (%) Score |
 |:---------------|----------------:|
@@ -78,6 +82,7 @@ The Open LLM PolyLM achieves the lowest score. The OpenLLaMA 7B V2 model however
 | Multi-linqual DeBERTa V3 | 85.8 |
 | OpenLLaMA 7B V2 (Lora: r = 64) | 89.5 |
 | GPT-3.5 Turbo 0613 (fine-tuned) | 90.8 |
+| GPT-3.5 Turbo 1106 (fine-tuned) | 89.4 |
 | !! Multi-linqual DeBERTa V3 (full dataset) | 95.2 |
 
 ## Future Work
@@ -87,9 +92,8 @@ In the near future I will expand this repository with the following code, result
 * DONE: Train 1 of the regular multi-lingual Transformer models on all (104K) available news articles.
 * DONE: Add finetuning and validation for any Open LLM's that are pretrained on the Dutch language.
 * Perform validation based on in-context learning with GPT-3.5
-* Add finetuning and validation for GPT-4
-* Perform all above steps for an additional Dutch dataset
-* ??? Any further requests/ideas are welcome ... post your question or idea through an Issue.
+* TODO: Add finetuning and validation for GPT-4 ... Still on the waiting list for GPT-4 finetuning
+* TODO: Perform all above steps for an additional Dutch dataset
 
 ## References
 
