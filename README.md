@@ -83,17 +83,8 @@ The Open LLM PolyLM achieves the lowest score. The OpenLLaMA 7B V2 model however
 | OpenLLaMA 7B V2 (Lora: r = 64) | 89.5 |
 | GPT-3.5 Turbo 0613 (fine-tuned) | 90.8 |
 | GPT-3.5 Turbo 1106 (fine-tuned) | 89.4 |
+| GPT-3.5 Turbo 1106 (in-context learning) | 56.0 |
 | !! Multi-linqual DeBERTa V3 (full dataset) | 95.2 |
-
-## Future Work
-
-In the near future I will expand this repository with the following code, results and further analysis:
-* DONE: Add 1 or 2 more regular multi-lingual Transformer models.
-* DONE: Train 1 of the regular multi-lingual Transformer models on all (104K) available news articles.
-* DONE: Add finetuning and validation for any Open LLM's that are pretrained on the Dutch language.
-* Perform validation based on in-context learning with GPT-3.5
-* TODO: Add finetuning and validation for GPT-4 ... Still on the waiting list for GPT-4 finetuning
-* TODO: Perform all above steps for an additional Dutch dataset
 
 ## References
 
